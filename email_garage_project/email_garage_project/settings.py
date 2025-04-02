@@ -12,22 +12,26 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from environ import Env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = Env()
+Env.read_env()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
+ENVIRONMENT = env('ENVIRONMENT', default="production")
+ENVIRONMENT = "production"
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--nbqmy9!_906_@2r*g-mc1i1i9&b%%5f!r^v9dv9)t)8y)tq7b'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if ENVIRONMENT == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
 # Application definition
 
@@ -38,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 EXTERNAL_APPS = [
@@ -50,8 +56,10 @@ EXTERNAL_APPS = [
 INSTALLED_APPS += EXTERNAL_APPS
 
 TAILWIND_APP_NAME = 'theme'
-INTERNAL_IPS = ['127.0.0.1']
-# ALLOWED_HOSTS = ['192.168.29.95']
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost:8000'
+    ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
@@ -65,6 +73,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     
     'django_browser_reload.middleware.BrowserReloadMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 X_FRAME_OPTIONS = 'ALLOWALL'
@@ -139,9 +148,17 @@ STATIC_URL = '/static/' # below this add the following line
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if ENVIRONMENT == 'development':
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    CLOUDINARY_STORAGE = {
+        'CLOUDINARY_URL': env('CLOUDINARY_URL')
+    }
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
