@@ -1,0 +1,109 @@
+{% load static %}
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %}Mail Garage{% endblock %}</title>
+    {% tailwind_css %}
+    {% block custom_css %} <link rel="stylesheet" href="{% static 'css/style.css' %}">{% endblock %}
+
+    {% block google_fonts %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    {% endblock %}
+</head>
+
+
+<body class="min-h-screen">
+    <!-- Sidebar -->
+    {% block sidebar %}
+    <aside class="fixed left-0 top-0 h-full w-[120px] bg-[#F1EFE0] border-r border-[#111111]/10 flex flex-col items-start justify-start pl-6 py-6 animate-slide-in">
+        <div class="mb-8 justify-start">
+            <a href="/" class="block w-10 h-10">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-10 h-10 text-[#FF3500]">
+                    <path 
+                        fill="currentColor" 
+                        d="M19.0028 5.12229C18.7264 4.89458 18.2634 4.89458 17.9869 5.12229L12.7013 9.26584L7.41576 5.12229C7.13926 4.89458 6.67636 4.89458 6.40014 5.12229L0.829497 9.5538C0.596444 9.73805 0.552941 10.0771 0.724605 10.3236C0.896098 10.5703 1.2056 10.617 1.42865 10.4328L6.90783 6.0845L12.1934 10.2298C12.3316 10.3381 12.5326 10.3381 12.6704 10.2298L17.9561 6.0845L23.4353 10.4328C23.5384 10.5135 23.6656 10.5539 23.7927 10.5539C23.9402 10.5539 24.0875 10.4938 24.1906 10.3748C24.369 10.1677 24.3524 9.83767 24.1538 9.65185L19.0028 5.12229Z" 
+                    />
+                    <path 
+                        fill="currentColor" 
+                        d="M23.5059 13.9061C23.2294 13.6784 22.7665 13.6784 22.49 13.9061L19.2286 16.5076L15.9672 13.9061C15.6907 13.6784 15.2278 13.6784 14.9515 13.9061L12.7013 15.6596L10.4511 13.9061C10.1748 13.6784 9.71159 13.6784 9.43537 13.9061L6.17397 16.5076L2.9126 13.9061C2.63606 13.6784 2.17319 13.6784 1.89697 13.9061C1.62074 14.1336 1.62074 14.5076 1.89697 14.7353L5.4328 17.592C5.57097 17.7007 5.77197 17.7007 5.91017 17.592L9.17157 14.9906L11.4218 16.7441C11.5598 16.8524 11.7608 16.8524 11.8992 16.7441L14.1494 14.9906L17.4108 17.592C17.549 17.7007 17.75 17.7007 17.8882 17.592L21.4238 14.7353C21.7 14.5076 21.7 14.1336 21.4238 13.9061H23.5059Z" 
+                    />
+                </svg>
+            </a>
+        </div>
+        
+        <nav class="flex flex-col items-start space-y-6">
+            <a href="/" class="nav-link text-sm font-medium transition-all hover:scale-105 text-[#FF3500]">
+                Home
+            </a>
+            
+            <a href="/brand/" class="nav-link text-sm font-medium transition-all hover:scale-105 text-[#17120B]/80 hover:text-[#17120B]">
+                Brands
+            </a>
+            
+            <a href="/templates/" class="nav-link text-sm font-medium transition-all hover:scale-105 text-[#17120B]/80 hover:text-[#17120B]">
+                Templates
+            </a>
+            
+            <a href="/blogs/" class="nav-link text-sm font-medium transition-all hover:scale-105 text-[#17120B]/80 hover:text-[#17120B]">
+                Blogs
+            </a>
+            
+            <a href="/about/" class="nav-link text-sm font-medium transition-all hover:scale-105 text-[#17120B]/80 hover:text-[#17120B]">
+                About
+            </a>
+        </nav>
+    </aside>
+    {% endblock %}
+
+    <div class="pl-[120px]">
+        <!-- Header -->
+        {% block header %}{% endblock %}
+
+        {% block content %}{% endblock %}
+        
+        {% block footer %}
+        <!-- Footer -->
+        <footer class="mt-12 py-6 bg-[#17120B] text-[#FF3500]">
+            <div class="container mx-auto px-8 pl-[120px]">
+                <div class="flex flex-col items-center md:flex-row md:justify-between">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8 text-[#FF4405]">
+                            <path 
+                                fill="currentColor" 
+                                d="M19.0028 5.12229C18.7264 4.89458 18.2634 4.89458 17.9869 5.12229L12.7013 9.26584L7.41576 5.12229C7.13926 4.89458 6.67636 4.89458 6.40014 5.12229L0.829497 9.5538C0.596444 9.73805 0.552941 10.0771 0.724605 10.3236C0.896098 10.5703 1.2056 10.617 1.42865 10.4328L6.90783 6.0845L12.1934 10.2298C12.3316 10.3381 12.5326 10.3381 12.6704 10.2298L17.9561 6.0845L23.4353 10.4328C23.5384 10.5135 23.6656 10.5539 23.7927 10.5539C23.9402 10.5539 24.0875 10.4938 24.1906 10.3748C24.369 10.1677 24.3524 9.83767 24.1538 9.65185L19.0028 5.12229Z" 
+                            />
+                            <path 
+                                fill="currentColor" 
+                                d="M23.5059 13.9061C23.2294 13.6784 22.7665 13.6784 22.49 13.9061L19.2286 16.5076L15.9672 13.9061C15.6907 13.6784 15.2278 13.6784 14.9515 13.9061L12.7013 15.6596L10.4511 13.9061C10.1748 13.6784 9.71159 13.6784 9.43537 13.9061L6.17397 16.5076L2.9126 13.9061C2.63606 13.6784 2.17319 13.6784 1.89697 13.9061C1.62074 14.1336 1.62074 14.5076 1.89697 14.7353L5.4328 17.592C5.57097 17.7007 5.77197 17.7007 5.91017 17.592L9.17157 14.9906L11.4218 16.7441C11.5598 16.8524 11.7608 16.8524 11.8992 16.7441L14.1494 14.9906L17.4108 17.592C17.549 17.7007 17.75 17.7007 17.8882 17.592L21.4238 14.7353C21.7 14.5076 21.7 14.1336 21.4238 13.9061H23.5059Z" 
+                            />
+                        </svg>
+                        <span class="text-xl font-bold">Email Garage</span>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">X</button>
+                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">YT</button>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center md:text-left">
+                    <p class="text-sm text-gray-400">©2024 Email Garage. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+        {% endblock %}
+    </div>
+
+    {% block login_page %}{% endblock %}
+
+</body>
+
+
+</html>

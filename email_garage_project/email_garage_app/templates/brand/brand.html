@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load static tailwind_tags %}
+
+<!-- Header -->
+{% block header %}
+<header class="top-0 z-10 w-full transition-all duration-300 bg-[#17120B] backdrop-blur-md shadow-sm">
+    <div class="w-full">
+        <div class="py-6 px-8">
+            <h1 class="text-5xl font-bold text-white">Discover the Best Brands</h1>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="flex flex-wrap items-center gap-2 px-8 py-2 overflow-x-auto">
+            {% for category in brand_list %}
+            <button type="button" class="py-2 px-6 me-2 mb-2 text-xs font-normal text-gray-900 focus:outline-none bg-transparent rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                {{ category.brand_type }}
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container mx-auto p-8">
+    <!-- Template Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Template Card 1 -->
+        {% for item in page_obj %}
+        <a href="/brand/{{item.id}}/" class="template-card bg-white rounded-md overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md animate-fade-in cursor-pointer" style="animation-delay: 0ms; animation-fill-mode: forwards;">
+            <div class="relative overflow-hidden">
+                <img
+                    src="{{ item.brand_logo.url }}"
+                    class="w-full aspect-[4/4] object-cover object-center bg-gray-100"
+                />
+            </div>
+            
+            <div class="p-3">
+                <div class="flex justify-between items-center mb-1">
+                    <h3 class="text-sm font-medium"> {{ item.brand_name }} </h3>
+                </div>
+                
+                <div class="flex items-center text-xs text-gray-500 space-x-2">
+                    <span> {{ item.brand_type }} </span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    <div class="flex justify-center items-center space-x-2 py-4">
+        {% for page_num in page_obj.paginator.page_range %}
+            {% if page_obj.number == page_num %}
+            <button class="w-8 h-8 flex items-center justify-center rounded-full transition-all bg-[#FF3500] text-white">
+                {{ page_num }}
+            </button>
+            {% else %}
+            <a href="?page={{ page_num }}" class="w-8 h-8 flex items-center justify-center rounded-full transition-all text-black">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

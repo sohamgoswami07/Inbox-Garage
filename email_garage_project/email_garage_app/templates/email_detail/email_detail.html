@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load static tailwind_tags %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container mx-auto p-32 drop-shadow-lg">
+    <!-- Email Detail -->
+    <div class="rounded-xl bg-blue-400 w-auto overflow-hidden">
+        <div class="grid grid-cols-[1fr_3fr] grid-rows-3 gap-4 w-auto h-48 p-8 bg-[#17120B]">
+            <div class="text-[#928471]">FROM:</div>
+            <div class="text-white"> {{ email.connected_brand }} </div>
+            <div class="text-[#928471]">SUBJECT:</div>
+            <div class="text-white"> {{ email.email_subject }} </div>
+            <div class="text-[#928471]">TAGS:</div>
+            <div class="text-white"> {{ email.email_category }} • {{ email.email_type }} </div>
+        </div>
+
+        <div class="h-auto w-full">
+            {% if email_image %}
+                <img src="{{ email_image }}" alt="Email Attachment">
+            {% elif email_content %}
+                <div>{{ email_content|safe }}</div>
+            {% else %}
+                <p>No content available.</p>
+            {% endif %}
+        </div>
+    </div>
+</main>
+{% endblock %}

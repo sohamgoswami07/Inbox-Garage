@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load static tailwind_tags %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto p-12 bg-cream-50">
+  <!-- Brand Card -->
+  <div class="bg-[#17120B] text-white rounded-lg overflow-hidden flex justify-between items-center p-8 shadow-md mb-10">
+    <div class="flex flex-col items-start">
+      <h2 class="text-3xl font-bold uppercase tracking-wide">{{ brand.brand_name }}</h2>
+      <p class="text-sm mb-24 opacity-80">{{ brand.brand_type }}</p>
+      <a href="{{brand.brand_url}}" target="_blank" class="bg-[#FF3500] hover:opacity-90 transition-opacity duration-300 text-white text-sm py-2 px-6 rounded-md">
+        VISIT WEBSITE
+      </a>
+    </div>
+    <div class="w-48 h-48 flex items-center justify-center">
+      <img src="{{ brand.brand_logo.url }}" alt="brand logo" class="w-full h-auto">
+    </div>
+  </div>
+
+  <!-- Brand Strategy Section -->
+  <section class="my-10">
+    <h2 class="text-2xl font-bold uppercase tracking-wide my-6">BRAND STRATEGY MAPS</h2>
+    <div class="bg-cream-100 rounded-lg mb-10">
+      <img src="{{ brand.brand_strategy_img.url }}" alt="Brand Strategy Map" class="w-full h-auto rounded-lg">
+    </div>
+  </section>
+
+  <!-- Info Sections -->
+  <div class="flex flex-wrap -mx-4 mb-10">
+    <div class="w-full md:w-1/2 p-4">
+      <h2 class="text-2xl font-bold uppercase tracking-wide mb-4">ABOUT</h2>
+      <p class="text-gray-800 leading-relaxed">{{ brand.brand_about }}</p>
+    </div>
+    
+    <div class="w-full md:w-1/2 p-4">
+      <h2 class="text-2xl font-bold uppercase tracking-wide mb-4">DIFFERENTIATOR</h2>
+      <p class="text-gray-800 leading-relaxed">{{ brand.brand_differenciator }}</p>
+    </div>
+  </div>
+
+  <!-- Email Newsletter Section -->
+  <section class="my-10">
+    <h2 class="text-2xl font-bold uppercase tracking-wide mb-4">EMAIL</h2>
+    <p class="text-gray-800 leading-relaxed mb-10">{{ brand.brand_email }}</p>
+  </section>
+
+  <!-- Template Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Template Card 1 -->
+    {% for item in email_list %}
+    <a href="../../email/{{item.id}}/" class="template-card bg-white rounded-md overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md animate-fade-in cursor-pointer" style="animation-delay: 0ms; animation-fill-mode: forwards;">
+        <div class="relative overflow-hidden">
+            <img
+                src="{{ item.email_body.url }}"
+                class="w-full aspect-[3/4] object-cover object-center bg-gray-100"
+            />
+        </div>
+        
+        <div class="p-3">
+            <div class="flex justify-between items-center mb-1">
+                <h3 class="text-sm font-medium"> {{ item.email_subject }} </h3>
+            </div>
+            
+            <div class="flex items-center text-xs text-gray-500 space-x-2">
+                <span> {{ item.email_category }} </span>
+                <span>•</span>
+                <span> {{ item.email_type }} </span>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load static tailwind_tags %}
+
+{% block content %}
+<!-- Main Content -->
+<main class="container mx-auto p-24">
+    <!-- Blog Detail -->
+        <div class="h-auto w-full">
+            {{ block_content|safe }}
+        </div>
+</main>
+{% endblock %}
