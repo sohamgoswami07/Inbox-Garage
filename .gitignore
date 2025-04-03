@@ -1,9 +1,0 @@
-venv_mail_garage/
-email_garage_project/node/
-email_garage_project/media/
-email_garage_project/email_garage_app/migrations/
-email_garage_project/email_garage_app/__pycache__/
-email_garage_project/email_garage_project/db.sqlite3
-email_garage_project/email_garage_project/.env
-.DS_Store
-.superuser
