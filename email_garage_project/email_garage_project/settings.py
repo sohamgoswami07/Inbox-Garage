@@ -17,7 +17,7 @@ from environ import Env
 env = Env()
 Env.read_env()
 
-ENVIRONMENT = env('ENVIRONMENT', default="production")
+ENVIRONMENT = env('ENVIRONMENT')
 ENVIRONMENT = "production"
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
@@ -159,15 +159,10 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
-
-if ENVIRONMENT == 'development':
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-else:
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    CLOUDINARY_STORAGE = {
-        'CLOUDINARY_URL': env('CLOUDINARY_URL')
-    }
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': env('CLOUDINARY_URL')
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class BrandDetail(models.Model):
@@ -11,8 +12,8 @@ class BrandDetail(models.Model):
     brand_about = models.CharField(max_length=500)
     brand_differenciator = models.CharField(max_length=500, null=True, blank=True)
     brand_email = models.CharField(max_length=500, null=True, blank=True)
-    brand_logo = models.ImageField(upload_to='brand_logo/')
-    brand_strategy_img = models.ImageField(upload_to='brand_strategy_img/')
+    brand_logo = CloudinaryField('file')
+    brand_strategy_img = CloudinaryField('image')
         
     def __str__(self):
         return self.brand_name
@@ -23,7 +24,7 @@ class EmailDetail(models.Model):
     email_subject = models.CharField(max_length=150)
     email_category = models.CharField(max_length=50)
     email_type = models.CharField(max_length=50)
-    email_body = models.FileField(upload_to='email_body/')
+    email_body = CloudinaryField('file')
     date_added = models.DateTimeField(default=timezone.now)
         
     def __str__(self):
@@ -42,7 +43,7 @@ class TemplatesDetail(models.Model):
 class BlogDetail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     blog_title = models.CharField(max_length=100)
-    blog_body = models.FileField(upload_to='blog_body/')
+    blog_body = CloudinaryField('file')
     date_added = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
