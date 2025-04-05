@@ -14,9 +14,6 @@ from pathlib import Path
 import os
 from environ import Env
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
 env = Env()
 Env.read_env()
 
@@ -24,6 +21,9 @@ ENVIRONMENT = env('ENVIRONMENT', default="production")
 ENVIRONMENT = "production"
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
@@ -44,8 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
-    'cloudinary',
 ]
 
 EXTERNAL_APPS = [
@@ -53,6 +51,8 @@ EXTERNAL_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 INSTALLED_APPS += EXTERNAL_APPS
