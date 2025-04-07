@@ -34,9 +34,10 @@ class TemplatesDetail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     template_subject = models.CharField(max_length=150)
     template_creation_tool = models.CharField(max_length=50)
+    template_header_img = CloudinaryField('image')
     template_link = models.CharField(max_length=150)
     date_added = models.DateTimeField(default=timezone.now)
-        
+
     def __str__(self):
         return self.template_subject
 
