@@ -75,17 +75,7 @@ def blogs(request):
 def email_detail(request, id):
     email = get_object_or_404(EmailDetail, id=id)
 
-    email_image = None
-
-    if email.email_body:
-        file_path = email.email_body.path  # Get the file path
-        file_extension = os.path.splitext(file_path)[1].lower()  # Get file extension
-
-        if file_extension in [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg"]:
-            # If the file is an image, pass its URL to the template
-            email_image = email.email_body.url  # URL to be used in frontend
-
-    return render(request, "email_detail/email_detail.html", {"email": email, "email_image": email_image})
+    return render(request, "email_detail/email_detail.html", {"email": email})
 
 def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
