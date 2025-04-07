@@ -1,31 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-# from django.contrib.auth import authenticate, login, logout
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
 import os
-
-# Create your views here.
-# def user_login(request):
-#     if request.method == "POST":
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
-
-#         if not User.objects.filter(username = username).exists:
-#             messages.error(request, "Invalid username!")
-#             return redirect('login')
-        
-#         user = authenticate(username = username, password = password)
-#         if user is None:
-#             messages.error(request, "Invalid password!")
-#             return redirect('login')
-            
-#         else:
-#             login(request, user)
-#             return redirect('home')
-
-#     return render(request, 'login/login.html')
+import requests
+from docx import Document
+from io import BytesIO
 
 def home(request): 
     # Get filter parameters from the request
@@ -118,14 +99,22 @@ def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
     
     blog_content = ""
-    file_path  = blog.blog_body.path # Get the file path
+    docx_url = blog.blog_body.url  # Get Cloudinary file path
     
     try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            blog_content = file.read()
+        response = requests.get(docx_url)
+        response.raise_for_status()
+
+        docx_file = BytesIO(response.content)
+        doc = Document(docx_file)
+
+        # Extract text content from the docx file
+        blog_content = "\n".join([para.text for para in doc.paragraphs])
+
     except Exception as e:
-        print(f"Error reading file: {e}")
-    
+        print(f"Error fetching or reading DOCX file: {e}")
+        blog_content = "Unable to load blog content."
+
     return render(request, 'blog_detail/blog_detail.html', {'blog_content': blog_content})
 
 def brand_detail(request, id):

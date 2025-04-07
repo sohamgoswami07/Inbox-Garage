@@ -12,7 +12,7 @@ class BrandDetail(models.Model):
     brand_about = models.CharField(max_length=500)
     brand_differenciator = models.CharField(max_length=500, null=True, blank=True)
     brand_email = models.CharField(max_length=500, null=True, blank=True)
-    brand_logo = CloudinaryField('file')
+    brand_logo = CloudinaryField('image')
     brand_strategy_img = CloudinaryField('image')
         
     def __str__(self):
@@ -24,9 +24,9 @@ class EmailDetail(models.Model):
     email_subject = models.CharField(max_length=150)
     email_category = models.CharField(max_length=50)
     email_type = models.CharField(max_length=50)
-    email_body = CloudinaryField('file')
+    email_body = CloudinaryField('image')
     date_added = models.DateTimeField(default=timezone.now)
-        
+
     def __str__(self):
         return self.email_subject
 
@@ -44,6 +44,7 @@ class BlogDetail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     blog_title = models.CharField(max_length=100)
     blog_body = CloudinaryField('file')
+    blog_header_img = CloudinaryField('image')
     date_added = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

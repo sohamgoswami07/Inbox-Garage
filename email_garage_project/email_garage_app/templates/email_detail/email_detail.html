@@ -17,13 +17,7 @@
         </div>
 
         <div class="h-auto w-full">
-            {% if email_image %}
-                <img src="{{ email.email_body.url }}" alt="Email Attachment">
-            {% elif email_content %}
-                <div>{{ email_content|safe }}</div>
-            {% else %}
-                <p>No content available.</p>
-            {% endif %}
+            <img src="{{ email.email_body.url }}" alt="Email Attachment">
         </div>
     </div>
 </main>
