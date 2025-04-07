@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from cloudinary.uploader import upload
 
 # Create your models here.
 class BrandDetail(models.Model):
