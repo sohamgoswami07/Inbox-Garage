@@ -51,3 +51,14 @@ class BlogDetail(models.Model):
 
     def __str__(self):
         return self.blog_title
+
+    def save(self, *args, **kwargs):
+        # If blog_body is a new upload and not yet a URL
+        if self.blog_body and not str(self.blog_body).startswith("http"):
+            upload_result = upload(
+                self.blog_body,
+                resource_type='raw'
+            )
+            self.blog_body = upload_result['url']
+        
+        super().save(*args, **kwargs)
