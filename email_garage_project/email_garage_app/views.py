@@ -73,7 +73,7 @@ def blogs(request):
     return render(request, 'blogs/blogs.html', {'blogs_list': blogs_list, 'page_obj': page_obj})
 
 def email_detail(request, id):
-    email = get_object_or_404(EmailDetail, id=id)
+    email = get_object_or_404(EmailDetail, id = id)
 
     return render(request, "email_detail/email_detail.html", {"email": email})
 

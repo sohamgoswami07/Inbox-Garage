@@ -161,7 +161,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': env('CLOUDINARY_URL')
+    'CLOUDINARY_URL': env('CLOUDINARY_URL'),
+    'RESOURCE_TYPE': env('RESOURCE_TYPE')
 }
 
 # Default primary key field type
