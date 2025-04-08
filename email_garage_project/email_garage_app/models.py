@@ -45,7 +45,7 @@ class TemplatesDetail(models.Model):
 class BlogDetail(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     blog_title = models.CharField(max_length=100)
-    blog_body = models.CharField()
+    blog_body = CloudinaryField('file')
     blog_header_img = CloudinaryField('image')
     date_added = models.DateTimeField(default=timezone.now)
 
