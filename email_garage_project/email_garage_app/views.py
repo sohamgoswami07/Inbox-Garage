@@ -79,15 +79,10 @@ def email_detail(request, id):
 
 def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
-    
-    # Direct URL to the DOCX file from Cloudinary (assuming the file is already uploaded to Google Drive)
-    docx_url = blog.blog_body.url  # You may still need to download it or use the link as it is if Google Drive URL is saved here
-    
-    # Construct the Google Drive embed URL (for viewing the DOCX file)
-    # Extract the file ID from the Cloudinary URL or Google Drive URL if needed.
-    google_drive_embed_url = f"https://drive.google.com/file/d/{docx_url.split('/')[-2]}/preview"
 
-    return render(request, 'blog_detail/blog_detail.html', {'google_drive_embed_url': google_drive_embed_url})
+    docx_url = blog.blog_body  # Get Cloudinary file path
+
+    return render(request, 'blog_detail/blog_detail.html', {'docx_url': docx_url})
 
 def brand_detail(request, id):
     brand = get_object_or_404(BrandDetail, id = id)
