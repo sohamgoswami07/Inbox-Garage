@@ -80,7 +80,7 @@ def email_detail(request, id):
 def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
 
-    docx_url = blog.blog_body  # Get Cloudinary file path
+    docx_url = blog.blog_body.url  # Get Cloudinary file path
 
     return render(request, 'blog_detail/blog_detail.html', {'docx_url': docx_url})
 
