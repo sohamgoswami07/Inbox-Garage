@@ -81,23 +81,23 @@ def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
     
     blog_content = ""
-    docx_url = blog.blog_body.url  # Get Cloudinary file path
+    docx_url = blog.blog_body  # Get Cloudinary file path
     
-    try:
-        response = requests.get(docx_url)
-        response.raise_for_status()
+    # try:
+    #     response = requests.get(docx_url)
+    #     response.raise_for_status()
 
-        docx_file = BytesIO(response.content)
-        doc = Document(docx_file)
+    #     docx_file = BytesIO(response.content)
+    #     doc = Document(docx_file)
 
-        # Extract text content from the docx file
-        blog_content = "\n".join([para.text for para in doc.paragraphs])
+    #     # Extract text content from the docx file
+    #     blog_content = "\n".join([para.text for para in doc.paragraphs])
 
-    except Exception as e:
-        print(f"Error fetching or reading DOCX file: {e}")
-        blog_content = "Unable to load blog content."
+    # except Exception as e:
+    #     print(f"Error fetching or reading DOCX file: {e}")
+    #     blog_content = "Unable to load blog content."
 
-    return render(request, 'blog_detail/blog_detail.html', {'blog_content': blog_content})
+    return render(request, 'blog_detail/blog_detail.html', {'docx_url': docx_url})
 
 def brand_detail(request, id):
     brand = get_object_or_404(BrandDetail, id = id)
