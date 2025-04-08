@@ -81,7 +81,7 @@ def blog_detail(request, id):
     blog = get_object_or_404(BlogDetail, id = id)
     
     blog_content = ""
-    docx_url = blog.blog_body  # Get Cloudinary file path
+    docx_url = blog.blog_body.url  # Get Cloudinary file path
     
     # try:
     #     response = requests.get(docx_url)
