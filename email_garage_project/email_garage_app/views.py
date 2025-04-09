@@ -50,7 +50,6 @@ def brand(request):
 
     # Paginator
     paginator = Paginator(brand_list, 20)  # 20 items per page
-
     page_number = request.GET.get('page') # Get the current page number
     page_obj = paginator.get_page(page_number)
 
