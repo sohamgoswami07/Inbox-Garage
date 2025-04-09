@@ -20,7 +20,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Template Card 1 -->
         {% for item in page_obj %}
-        <a href="{{ item.template_link }}" class="template-card bg-white rounded-md overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md animate-fade-in cursor-pointer" style="animation-delay: 0ms; animation-fill-mode: forwards;">
+        <a href="{{ item.template_link }}" target="_blank" class="template-card bg-white rounded-md overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md animate-fade-in cursor-pointer" style="animation-delay: 0ms; animation-fill-mode: forwards;">
             <div class="relative overflow-hidden">
                 <img
                     src="{{ item.template_header_img.url }}"

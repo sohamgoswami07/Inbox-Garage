@@ -13,20 +13,23 @@ def home(request):
     selected_category = request.GET.get('category', None)
     selected_type = request.GET.get('type', None)
 
-    # Fetch all emails
+    # Base queryset for all emails (unfiltered)
     email_list = EmailDetail.objects.all().order_by('id')
 
     # Filter based on category if selected
-    if selected_category:
+    if selected_category and selected_type:
+        # Filter for both category and type when both are selected
+        email_list = email_list.filter(email_category=selected_category, email_type=selected_type)
+    elif selected_category:
+        # Filter only by category if only category is selected
         email_list = email_list.filter(email_category=selected_category)
-
-    # Filter based on type if selected
-    if selected_type:
+    elif selected_type:
+        # Filter only by type if only type is selected
         email_list = email_list.filter(email_type=selected_type)
 
     # Get the distinct categories and types for the filter buttons
-    categories = email_list.values_list('email_category', flat=True).distinct()
-    types = email_list.values_list('email_type', flat=True).distinct()
+    categories = EmailDetail.objects.values_list('email_category', flat=True).distinct()
+    types = EmailDetail.objects.values_list('email_type', flat=True).distinct()
 
     # Paginator
     paginator = Paginator(email_list, 20)  # 20 items per page
@@ -34,7 +37,13 @@ def home(request):
     page_obj = paginator.get_page(page_number)
 
     # Pass page_obj, categories, and types to the template for rendering
-    return render(request, 'home/home.html', {'page_obj': page_obj, 'selected_category': selected_category, 'selected_type': selected_type, 'categories': categories, 'types': types})
+    return render(request, 'home/home.html', {
+        'page_obj': page_obj,
+        'selected_category': selected_category,
+        'selected_type': selected_type,
+        'categories': categories,
+        'types': types
+    })
 
 def brand(request):
     brand_list = BrandDetail.objects.all().order_by('id') # fetch all emails
