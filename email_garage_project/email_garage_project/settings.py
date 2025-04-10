@@ -14,16 +14,16 @@ from pathlib import Path
 import os
 from environ import Env
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 env = Env()
-Env.read_env()
+Env.read_env(os.path.join(Path(__file__).resolve().parent, '.env'))
 
 ENVIRONMENT = env('ENVIRONMENT')
 ENVIRONMENT = "production"
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if ENVIRONMENT == 'development':
@@ -114,9 +114,17 @@ if ENVIRONMENT == 'development':
 
 else:
     import dj_database_url
+
     DATABASES = {
-        'default': dj_database_url.parse(env('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
+}
 
 
 # Password validation
