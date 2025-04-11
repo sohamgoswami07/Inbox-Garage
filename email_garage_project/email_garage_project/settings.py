@@ -114,7 +114,7 @@ if ENVIRONMENT == 'development':
 
 else:
     import dj_database_url
-    # DEBUG = True
+    DEBUG = True
 
     DATABASES = {
         'default': {
