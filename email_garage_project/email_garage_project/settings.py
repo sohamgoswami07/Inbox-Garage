@@ -58,9 +58,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
-
-EXTERNAL_APPS = [
     'email_garage_app',
     'tailwind',
     'theme',
@@ -68,8 +65,6 @@ EXTERNAL_APPS = [
     'cloudinary_storage',
     'cloudinary',
 ]
-
-INSTALLED_APPS += EXTERNAL_APPS
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [

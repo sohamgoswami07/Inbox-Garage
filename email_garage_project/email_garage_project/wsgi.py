@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'email_garage_project.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "email_garage_project.email_garage_project.settings")
 
 application = get_wsgi_application()
