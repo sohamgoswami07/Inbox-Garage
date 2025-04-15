@@ -45,9 +45,9 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'mail-garage.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.inboxgarage.com', 'inboxgarage.com']
 
-CSRF_TRUSTED_ORIGINS = ['https://mail-garage.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://www.inboxgarage.com']
 
 # Application definition
 
