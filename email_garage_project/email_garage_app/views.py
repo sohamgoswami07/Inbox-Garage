@@ -68,29 +68,10 @@ def templates(request):
     # Pass page_obj to the template for rendering
     return render(request, 'templates/templates.html', {'templates_list': templates_list, 'page_obj': page_obj})
 
-def blogs(request):
-    blogs_list = BlogDetail.objects.all().order_by('id') # fetch all emails
-
-    # Paginator
-    paginator = Paginator(blogs_list, 20)  # 20 items per page
-
-    page_number = request.GET.get('page') # Get the current page number
-    page_obj = paginator.get_page(page_number)
-
-    # Pass page_obj to the template for rendering
-    return render(request, 'blogs/blogs.html', {'blogs_list': blogs_list, 'page_obj': page_obj})
-
 def email_detail(request, id):
     email = get_object_or_404(EmailDetail, id = id)
 
     return render(request, "email_detail/email_detail.html", {"email": email})
-
-def blog_detail(request, id):
-    blog = get_object_or_404(BlogDetail, id = id)
-
-    docx_url = blog.blog_body.url  # Get Cloudinary file path
-
-    return render(request, 'blog_detail/blog_detail.html', {'docx_url': docx_url})
 
 def brand_detail(request, id):
     brand = get_object_or_404(BrandDetail, id = id)

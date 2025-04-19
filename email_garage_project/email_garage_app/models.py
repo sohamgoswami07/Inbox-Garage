@@ -41,24 +41,3 @@ class TemplatesDetail(models.Model):
 
     def __str__(self):
         return self.template_subject
-
-class BlogDetail(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    blog_title = models.CharField(max_length=100)
-    blog_body = CloudinaryField('raw')
-    blog_header_img = CloudinaryField('image')
-    date_added = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.blog_title
-
-    def save(self, *args, **kwargs):
-        # If blog_body is a new upload and not yet a URL
-        if self.blog_body and not str(self.blog_body).startswith("http"):
-            upload_result = upload(
-                self.blog_body,
-                resource_type='raw'
-            )
-            self.blog_body = upload_result['url']
-        
-        super().save(*args, **kwargs)
