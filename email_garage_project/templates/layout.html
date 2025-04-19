@@ -46,15 +46,24 @@
         </div>
         
         <nav class="flex flex-col items-start space-y-6">
-            <a href="/" class="nav-link text-sm font-medium transition-all hover:scale-105 {% if request.path == '/' %}active{% endif %} text-[#FF3500]">
+            <!-- Email Button -->
+            <a href="/" 
+               class="nav-link text-sm font-medium transition-all hover:scale-105 
+               {% if request.path == '/' %}text-[#FF3500] font-bold{% else %}text-[#17120B]/80 hover:text-[#17120B]{% endif %}">
                 Email
             </a>
-    
-            <a href="{% url 'brand' %}" class="nav-link text-sm font-medium transition-all hover:scale-105 {% if request.path == '/brand/' %}active{% endif %} text-[#17120B]/80 hover:text-[#17120B]">
+        
+            <!-- Brands Button -->
+            <a href="{% url 'brand' %}" 
+               class="nav-link text-sm font-medium transition-all hover:scale-105 
+               {% if request.path == '/brand/' %}text-[#FF3500] font-bold{% else %}text-[#17120B]/80 hover:text-[#17120B]{% endif %}">
                 Brands
             </a>
-    
-            <a href="{% url 'templates' %}" class="nav-link text-sm font-medium transition-all hover:scale-105 {% if request.path == '/templates/' %}active{% endif %} text-[#17120B]/80 hover:text-[#17120B]">
+        
+            <!-- Templates Button -->
+            <a href="{% url 'templates' %}" 
+               class="nav-link text-sm font-medium transition-all hover:scale-105 
+               {% if request.path == '/templates/' %}text-[#FF3500] font-bold{% else %}text-[#17120B]/80 hover:text-[#17120B]{% endif %}">
                 Templates
             </a>
         </nav>
