@@ -13,8 +13,8 @@ class BrandDetail(models.Model):
     brand_about = models.CharField(max_length=500)
     brand_differenciator = models.CharField(max_length=500, null=True, blank=True)
     brand_email = models.CharField(max_length=500, null=True, blank=True)
-    brand_logo = CloudinaryField('image', verbose_name="Brand logo")
-    brand_strategy_img = CloudinaryField('image', verbose_name="Brand strategy maps")
+    brand_logo = CloudinaryField(verbose_name='Brand logo')
+    brand_strategy_img = CloudinaryField(verbose_name='Brand strategy maps')
         
     def __str__(self):
         return self.brand_name
