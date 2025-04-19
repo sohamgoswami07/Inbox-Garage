@@ -14,16 +14,21 @@
         <div class="flex flex-wrap items-center gap-2 px-8 py-2 overflow-x-auto">
             <form method="get" action="">
                 {% csrf_token %}
-                <button type="submit" name="category" value="" class="py-2 px-6 me-2 mb-2 text-xs font-normal {% if category == selected_category %} bg-transparent text-gray-900{% else %} bg-[#FF3500] text-white {% endif %} focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                <!-- All Categories Button -->
+                <button type="submit" name="category" value="" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if not selected_category %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                     All Categories
                 </button>
+                
+                <!-- Dynamic Category Buttons -->
                 {% for category in categories %}
-                <button type="submit" name="category" value="{{ category }}" class="py-2 px-6 me-2 mb-2 text-xs font-normal {% if category == selected_category %}bg-[#FF3500] text-white {% else %} bg-transparent text-gray-900 {% endif %} focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    {% if category == selected_category %}
-                    {{ category }} x
-                    {% else %}
+                <button type="submit" name="category" value="{{ category }}" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if category == selected_category %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                     {{ category }}
-                    {% endif %}
                 </button>
                 {% endfor %}
             </form>
@@ -33,16 +38,21 @@
         <div class="flex flex-wrap items-center gap-2 px-8 py-2 overflow-x-auto">
             <form method="get" action="">
                 {% csrf_token %}
-                <button type="submit" name="type" value="" class="py-2 px-6 me-2 mb-2 text-xs font-normal text-gray-900 focus:outline-none bg-transparent rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                <!-- All Types Button -->
+                <button type="submit" name="type" value="" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if not selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                     All Types
                 </button>
-                {% for email_type in types %}
-                <button type="submit" name="type" value="{{ email_type }}" class="py-2 px-6 me-2 mb-2 text-xs font-normal {% if email_type == selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                    {% if email_type == selected_type %}
-                    {{ email_type }} x
-                    {% else %}
-                    {{ email_type }}
-                    {% endif %}
+                
+                <!-- Dynamic Type Buttons -->
+                {% for type in types %}
+                <button type="submit" name="type" value="{{ type }}" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if type == selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                    {{ type }}
                 </button>
                 {% endfor %}
             </form>
