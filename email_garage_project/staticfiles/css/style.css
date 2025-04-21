@@ -19,6 +19,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'syne';
+  src: url('../fonts/SyneRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 html,
 :host {
@@ -51,6 +58,10 @@ abbr:where([title]) {
           text-decoration: underline dotted;
 }
 
+nav {
+  font-family: 'syne', sans-serif; 
+}
+
 h1,
 h2,
 h3,
@@ -59,6 +70,7 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
+  font-family: 'syne', sans-serif;
 }
 
 a {
