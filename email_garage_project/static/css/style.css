@@ -59,10 +59,16 @@ abbr:where([title]) {
 }
 
 nav {
-  font-family: 'syne', sans-serif; 
+  font-family: 'syne'; 
 }
 
-h1,
+h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: 'syne';
+  font-weight: bold;
+}
+
 h2,
 h3,
 h4,
@@ -70,7 +76,7 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
-  font-family: 'syne', sans-serif;
+  font-family: 'syne';
 }
 
 a {
