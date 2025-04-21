@@ -26,7 +26,7 @@
     <aside class="fixed left-0 top-0 h-full w-[120px] bg-[#F1EFE0] border-r border-[#111111]/10 flex flex-col items-start justify-start pl-6 py-6 animate-slide-in">
         <div class="mb-8 justify-start">
             <a href="/" class="block w-10 h-10">
-                <img src="{% static 'assets/LogoFull.img' %}" alt="">
+                <img src="{% static 'assets/LogoFull.png' %}" alt="">
             </a>
         </div>
         
@@ -65,19 +65,12 @@
         <!-- Footer -->
         <footer class="mt-12 py-6 bg-[#17120B] text-[#FF3500]">
             <div class="container mx-auto px-8 pl-[120px]">
-                <div class="flex flex-col w-full items-center md:flex-row md:justify-between">
-                    <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                        <img src="{% static 'assets/Mailbox.png' %}" alt="">
-                        <span class="text-7xl font-bold">Inbox Garage</span>
-                    </div>
-                    
-                    {% comment %} <div class="flex space-x-4">
-                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">X</button>
-                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">YouTube</button>
-                    </div> {% endcomment %}
+                <div class="flex w-full items-center space-x-2 mb-4 md:mb-0">
+                    <img src="{% static 'assets/Mailbox.png' %}" class="h-16 w-auto" alt="">
+                    <span class="text-7xl font-bold">Inbox Garage</span>
                 </div>
                 
-                <div class="mt-6 text-center md:text-left">
+                <div class="mt-6 text-left">
                     <p class="text-sm text-gray-400">©2025 Inbox Garage. All rights reserved.</p>
                 </div>
             </div>
