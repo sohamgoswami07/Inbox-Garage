@@ -14,7 +14,7 @@ def home(request):
     selected_type = request.GET.get('type', None)
 
     # Base queryset for all emails (unfiltered)
-    email_list = EmailDetail.objects.all().order_by('id')
+    email_list = EmailDetail.objects.all().order_by('-id')
 
     # Filter based on category if selected
     if selected_category and selected_type:
@@ -46,7 +46,7 @@ def home(request):
     })
 
 def brand(request):
-    brand_list = BrandDetail.objects.all().order_by('id') # fetch all emails
+    brand_list = BrandDetail.objects.all().order_by('-id') # fetch all emails
     selected_type = request.GET.get('type', None)
 
     # Get the distinct categories and types for the filter buttons
@@ -61,7 +61,7 @@ def brand(request):
     return render(request, 'brand/brand.html', {'brand_list': brand_list, 'brand_type': brand_type, 'selected_type': selected_type, 'page_obj': page_obj})
 
 def templates(request):
-    templates_list = TemplatesDetail.objects.all().order_by('id') # fetch all emails
+    templates_list = TemplatesDetail.objects.all().order_by('-id') # fetch all emails
 
     # Paginator
     paginator = Paginator(templates_list, 20)  # 20 items per page

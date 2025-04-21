@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>{% block title %}Mail Garage{% endblock %}</title>
+    <title>{% block title %}Inbox Garage{% endblock %}</title>
     {% block custom_css %} 
     {% if debug %}
     {% tailwind_css %}
@@ -64,7 +64,7 @@
     </aside>
     {% endblock %}
 
-    <div class="pl-[120px] min-h-screen">
+    <div class="pl-[120px] bg-[#EFEAD9] min-h-screen">
         <!-- Header -->
         {% block header %}{% endblock %}
 
@@ -89,10 +89,10 @@
                         <span class="text-xl font-bold">Inbox Garage</span>
                     </div>
                     
-                    <div class="flex space-x-4">
+                    {% comment %} <div class="flex space-x-4">
                         <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">X</button>
-                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">YT</button>
-                    </div>
+                        <button class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 transition-colors">YouTube</button>
+                    </div> {% endcomment %}
                 </div>
                 
                 <div class="mt-6 text-center md:text-left">
