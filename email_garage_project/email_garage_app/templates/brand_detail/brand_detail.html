@@ -3,7 +3,7 @@
 {% load static tailwind_tags %}
 
 {% block content %}
-<div class="mx-auto" style="max-width: 52rem; min-width: 40rem;">
+<div class="mx-auto" style="max-width: 52rem; min-width: 40rem; padding-top: 3rem;">
   <!-- Brand Card -->
   <div class="bg-[#17120B] text-white rounded-lg overflow-hidden flex justify-between items-center p-8 shadow-md mb-10">
     <div class="flex flex-col items-start">
@@ -46,7 +46,7 @@
   </section>
 
   <!-- Template Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
     <!-- Template Card 1 -->
     {% for item in email_list %}
     <a href="../../email/{{item.id}}/" class="template-card bg-white rounded-md overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg animate-fade-in cursor-pointer" style="animation-delay: 0ms; animation-fill-mode: forwards;">
