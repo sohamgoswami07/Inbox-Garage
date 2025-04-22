@@ -46,7 +46,7 @@ def home(request):
     })
 
 def brand(request):
-    brand_list = BrandDetail.objects.all().order_by('-id') # fetch all emails
+    brand_list = BrandDetail.objects.filter(brand_type=selected_type).order_by('-id') if selected_type else BrandDetail.objects.all().order_by('-id') # fetch all emails
     selected_type = request.GET.get('type', None)
 
     # Get the distinct categories and types for the filter buttons

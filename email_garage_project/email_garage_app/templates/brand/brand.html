@@ -12,22 +12,24 @@
         
         <!-- Category Filter -->
         <div class="flex flex-wrap items-center gap-2 px-8 py-2 overflow-x-auto">
-            <button type="submit" name="type" value="" 
-                    class="py-2 px-6 me-2 mb-2 text-xs font-normal 
-                    {% if not selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
-                    focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                All Types
-            </button>
-            
-            <!-- Dynamic Type Buttons -->
-            {% for type in brand_type %}
-            <button type="submit" name="type" value="{{brand_type}}" 
-                    class="py-2 px-6 me-2 mb-2 text-xs font-normal 
-                    {% if type == selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
-                    focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                {{ type }}
-            </button>
-            {% endfor %}
+            <form method="get" action="">
+                <button type="submit" name="type" value="" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if not selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                    All Types
+                </button>
+                
+                <!-- Dynamic Type Buttons -->
+                {% for type in brand_type %}
+                <button type="submit" name="type" value="{{brand_type}}" 
+                        class="py-2 px-6 me-2 mb-2 text-xs font-normal 
+                        {% if type == selected_type %}bg-[#FF3500] text-white{% else %}bg-transparent text-gray-900{% endif %} 
+                        focus:outline-none rounded-full border border-white-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                    {{ type }}
+                </button>
+                {% endfor %}
+            </form>
         </div>
     </div>
 </header>
