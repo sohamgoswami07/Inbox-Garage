@@ -19,13 +19,13 @@ def home(request):
     # Filter based on category if selected
     if selected_category and selected_type:
         # Filter for both category and type when both are selected
-        email_list = email_list.filter(email_category=selected_category, email_type=selected_type)
+        email_list = email_list.filter(email_category=selected_category, email_type=selected_type).order_by('-id')
     elif selected_category:
         # Filter only by category if only category is selected
-        email_list = email_list.filter(email_category=selected_category)
+        email_list = email_list.filter(email_category=selected_category).order_by('-id')
     elif selected_type:
         # Filter only by type if only type is selected
-        email_list = email_list.filter(email_type=selected_type)
+        email_list = email_list.filter(email_type=selected_type).order_by('-id')
 
     # Get the distinct categories and types for the filter buttons
     categories = EmailDetail.objects.values_list('email_category', flat=True).distinct()
