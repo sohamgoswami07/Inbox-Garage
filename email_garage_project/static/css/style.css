@@ -698,12 +698,10 @@ video {
 }
 
 .filter-button-active::after {
-  content: "✔";
-  font-size: 0.7rem;
-  background-color: #FFA37E;
-  color: #2D1610;
-  border-radius: 9999px;
-  padding: 0.05rem 0.3rem;
+  content: url("../assets/CheckCircle.png");
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
   margin-left: 0.25rem;
 }
 
