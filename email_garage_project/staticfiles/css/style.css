@@ -14,15 +14,22 @@
 
 @font-face {
   font-family: 'outfit';
-  src: url('../fonts/OutfitRegular.ttf') format('truetype');
+  src: url('../fonts/Outfit/Outfit-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'syne';
-  src: url('../fonts/SyneRegular.ttf') format('truetype');
+  font-family: 'syne-regular';
+  src: url('../fonts/Syne/Syne-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'syne-bold';
+  src: url('../fonts/Syne/Syne-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
 
@@ -59,10 +66,16 @@ abbr:where([title]) {
 }
 
 nav {
-  font-family: 'syne', sans-serif; 
+  font-family: 'syne-regular'; 
 }
 
-h1,
+h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: 'syne-bold';
+  font-weight: bold;
+}
+
 h2,
 h3,
 h4,
@@ -70,7 +83,7 @@ h5,
 h6 {
   font-size: inherit;
   font-weight: inherit;
-  font-family: 'syne', sans-serif;
+  font-family: 'syne-regular';
 }
 
 a {
