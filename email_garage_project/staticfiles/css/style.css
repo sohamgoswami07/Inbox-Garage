@@ -670,35 +670,38 @@ video {
   padding: 0.5rem 1.5rem;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 400;
-  border-radius: 9999px; /* Fully rounded */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #1f1f1f; /* Inactive background */
+  color: #c4c4c4; /* Inactive text color */
   transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+/* Hover */
 .filter-button:hover {
-  background-color: #f3f4f6; /* Light gray on hover */
-  color: #1d4ed8; /* Blue on hover */
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Active */
 .filter-button-active {
-  background-color: #FF3500; /* Active background color */
-  color: white; /* Active text color */
+  background-color: #4e1d14; /* Rich dark reddish background */
+  color: #f4a38d; /* Warm peachy text color */
+  border-color: #f4a38d;
 }
 
-.filter-button-inactive {
-  background-color: transparent; /* Default background */
-  color: #1f2937; /* Default text color (gray) */
-}
-
-/* Dark mode support */
-.filter-button-dark {
-  background-color: #1f2937; /* Dark background */
-  color: #d1d5db; /* Light gray text */
-}
-
-.filter-button-dark:hover {
-  background-color: #374151; /* Darker gray on hover */
-  color: white; /* White text on hover */
+.filter-button-active::after {
+  content: "✔";
+  font-size: 0.75rem;
+  background-color: #f4a38d;
+  color: #4e1d14;
+  border-radius: 9999px;
+  padding: 0.1rem 0.3rem;
+  margin-left: 0.25rem;
 }
