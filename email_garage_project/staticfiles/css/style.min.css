@@ -686,7 +686,7 @@ video {
   border-radius: 9999px;
   border-color: 1px solid rgba(255, 255, 255, 0.14);
   background-color: rgba(255, 255, 255, 0.07);
-  color: #c4c4c4;
+  color: rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease-in-out;
   display: inline-flex;
   align-items: center;
@@ -696,26 +696,33 @@ video {
 /* Hover */
 
 .filter-button:hover {
-  background-color: #2a2a2a;
-  color: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.5);
+  border-color: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 /* Active */
 
 .filter-button-active {
   background-color: #2D1610;
-  /* Rich dark reddish background */
   color: #FFA37E;
-  /* Warm peachy text color */
+  border-color: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .filter-button-active::after {
   content: "✔";
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   background-color: #FFA37E;
   color: #2D1610;
   border-radius: 9999px;
   padding: 0.1rem 0.3rem;
   margin-left: 0.25rem;
+}
+
+/* Hover only if not active */
+
+.filter-button:not(.filter-button-active):hover {
+  background-color: #2D1610;
+  color: #FFA37E;
+  border-color: 1px solid rgba(255, 255, 255, 0.14);
 }
