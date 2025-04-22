@@ -46,11 +46,12 @@ def home(request):
     })
 
 def brand(request):
-    brand_list = BrandDetail.objects.filter(brand_type=selected_type).order_by('-id') if selected_type else BrandDetail.objects.all().order_by('-id') # fetch all emails
     selected_type = request.GET.get('type', None)
 
     # Get the distinct categories and types for the filter buttons
     brand_type = BrandDetail.objects.values_list('brand_type', flat=True).distinct()
+
+    brand_list = BrandDetail.objects.filter(brand_type=selected_type).order_by('-id') if selected_type else BrandDetail.objects.all().order_by('-id') # fetch all emails
 
     # Paginator
     paginator = Paginator(brand_list, 20)  # 20 items per page
