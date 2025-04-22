@@ -713,9 +713,10 @@ video {
 .filter-button-active::after {
   content: url("../assets/CheckCircle.png");
   display: inline-block;
-  width: 0.7rem;
-  height: 0.7rem;
-  margin-left: 0.25rem;
+  width: 1rem;
+  height: 1.2rem;
+  padding: 0rem;
+  margin: 0rem;
 }
 
 /* Hover only if not active */
