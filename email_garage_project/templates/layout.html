@@ -62,17 +62,17 @@
         
         {% block footer %}
         <!-- Footer -->
-        <footer class="mt-12 py-6 bg-[#17120B] text-[#FF3500]">
-            <div class="container mx-auto px-8 pl-[120px]">
+        <footer class="mt-12 py-6 px-8 bg-[#17120B] text-[#FF3500]">
+            <div class="container mx-auto">
                 <div class="flex w-full h-auto items-center justify-center mb-4 md:mb-0">
                     <img src="{% static 'assets/Mailbox.png' %}" class="h-16 w-auto" alt="">
                     <h1 style="font-size: 4.5rem; font-weight: bold; margin-left: 1rem">Inbox Garage</h1>
                 </div>
-                
-                <div class="mt-6 text-left">
-                    <p class="text-sm text-gray-400">©2025 Inbox Garage. All rights reserved.</p>
-                </div>
             </div>
+              
+        <div class="mt-6 text-right">
+            <p class="text-sm text-gray-400">©2025 Inbox Garage. All rights reserved.</p>
+        </div>
         </footer>
         {% endblock %}
     </div>
