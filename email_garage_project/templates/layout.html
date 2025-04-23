@@ -7,25 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="icon" href="https://res.cloudinary.com/dkwocskxs/image/upload/v1745430422/tab_favicon_fkojmc.ico">
     <title>{% block title %}Inbox Garage{% endblock %}</title>
 
     {% block custom_css %} 
     {% if debug %}
     {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=1024x1024&w=is&k=20&c=d1zu5oXbrdTrk2AtTyUtvnWLF7ZeIbTgqSXabU4ABi4=">
-    <link rel="preload" href="{% static '../static/assets/fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/Mailbox.png' %}" as="image">
     {% else %}
     {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-    <link rel="icon" href="https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=1024x1024&w=is&k=20&c=d1zu5oXbrdTrk2AtTyUtvnWLF7ZeIbTgqSXabU4ABi4=">
-    <link rel="preload" href="{% static '../static/assets/fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static '../static/assets/Mailbox.png' %}" as="image">
     {% endif %}
     {% endblock %}
 </head>
