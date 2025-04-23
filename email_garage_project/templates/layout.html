@@ -16,6 +16,11 @@
     {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
     {% endif %}
+    <link rel="preload" href="{% static 'fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static 'assets/Mailbox.png' %}" as="image">
+    <link rel="icon" href="{% static 'assets/tab_favicon.png' %}">
     {% endblock %}
 </head>
 
