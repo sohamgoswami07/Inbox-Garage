@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>{% block title %}Inbox Garage{% endblock %}</title>
+    <link rel="icon" href="{% static 'assets/tab_favicon.png' %}" type="image/x-icon">
+
     {% block custom_css %} 
     {% if debug %}
     {% tailwind_css %}
@@ -20,7 +22,6 @@
     <link rel="preload" href="{% static 'fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
     <link rel="preload" href="{% static 'fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
     <link rel="preload" href="{% static 'assets/Mailbox.png' %}" as="image">
-    <link rel="icon" href="{% static 'assets/tab_favicon.png' %}">
     {% endblock %}
 </head>
 
