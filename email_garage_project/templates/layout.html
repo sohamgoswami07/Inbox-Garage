@@ -13,19 +13,19 @@
     {% if debug %}
     {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="icon" href="{% static 'assets/tab_favicon.ico' %}">
-    <link rel="preload" href="{% static 'fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'assets/Mailbox.png' %}" as="image">
+    <link rel="icon" href="{% static '../static/assets/tab_favicon.ico' %}">
+    <link rel="preload" href="{% static '../static/assets/fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/Mailbox.png' %}" as="image">
     {% else %}
     {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
-    <link rel="icon" href="{% static 'assets/tab_favicon.ico' %}">
-    <link rel="preload" href="{% static 'fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{% static 'assets/Mailbox.png' %}" as="image">
+    <link rel="icon" href="{% static '../static/assets/tab_favicon.ico' %}">
+    <link rel="preload" href="{% static '../static/assets/fonts/Outfit/Outfit-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Regular.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/fonts/Syne/Syne-Bold.ttf' %}" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="{% static '../static/assets/Mailbox.png' %}" as="image">
     {% endif %}
     {% endblock %}
 </head>
