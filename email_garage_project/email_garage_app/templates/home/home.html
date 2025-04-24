@@ -97,7 +97,7 @@
                 {{ page_num }}
             </button>
             {% else %}
-            <a href="?page={{ page_num }}&category={{ selected_category }}&type={{ selected_type }}" class="w-8 h-8 flex items-center justify-center rounded-full transition-all text-black">
+            <a href="?page={{page_num}}{% if selected_category %}&category={{selected_category}}{% endif %}{% if selected_type %}&type={{selected_type}}{% endif %}" class="w-8 h-8 flex items-center justify-center rounded-full transition-all text-black">
                 {{ page_num }}
             </a>
             {% endif %}
